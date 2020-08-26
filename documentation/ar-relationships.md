@@ -12,9 +12,12 @@ has_many :courses, through: :course_rosters
 ```
 
 ## Course
+
+```ruby
 has_many :course_rosters
 has_many :people, through: :course_roster
 has_many :questions
+```
 
 ## CourseRoster
 
