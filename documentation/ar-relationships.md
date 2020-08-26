@@ -32,7 +32,6 @@ belongs_to :course
 belongs_to :person
 belongs_to :course
 has_many :answers
-has_many :answer_ratings, through: answers
 ```
 
 ## Answer
