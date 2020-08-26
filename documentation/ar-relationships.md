@@ -17,6 +17,7 @@ has_many :courses, through: :course_rosters
 has_many :course_rosters
 has_many :people, through: :course_roster
 has_many :questions
+belongs_to :person
 ```
 
 ## CourseRoster
