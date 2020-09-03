@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::API
+  before_action :authorized
   attr_reader :jwt_key
 
   #FIXME: this is a fake development encryption key...set main key in production
@@ -34,5 +35,9 @@ class ApplicationController < ActionController::API
 
   def logged_in?
     !!current_user
+  end
+
+  def authorized
+    render json: {:message => 'Please log in'}, status: :unauthorized unless logged_in?
   end
 end
