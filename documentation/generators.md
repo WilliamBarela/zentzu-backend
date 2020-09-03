@@ -4,7 +4,7 @@
 
 ```bash
 rails g model Person email:string password_digest:string first_name:string last_name:string summary:text
-rails g controller People
+rails g controller api/v1/people
 ```
 
 ## Course
