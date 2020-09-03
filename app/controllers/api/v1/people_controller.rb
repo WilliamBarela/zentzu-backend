@@ -2,7 +2,14 @@ class Api::V1::PeopleController < ApplicationController
   def create
     person = Person.create(person_params)
     if person.valid?
-      render json: {:errors => false}, status: :created
+      render json: {
+                    :errors => false,
+                    :jwt_token => encode_token(
+                      {
+                        :person_id => person.id,
+                        :email => person.email
+                      }
+                    )}, status: :created
     else
       render json: {:errors => person.errors.full_messages}, status: :not_acceptable
     end
