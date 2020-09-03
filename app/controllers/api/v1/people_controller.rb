@@ -1,4 +1,6 @@
 class Api::V1::PeopleController < ApplicationController
+  skip_before_action :authorized, only: [:create]
+
   def create
     person = Person.create(person_params)
     if person.valid?
