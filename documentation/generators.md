@@ -7,6 +7,11 @@ rails g model Person email:string password_digest:string first_name:string last_
 rails g controller api/v1/people
 ```
 
+## Auth
+```bash
+rails g controller api/v1/auth
+```
+
 ## Course
 
 ```bash
