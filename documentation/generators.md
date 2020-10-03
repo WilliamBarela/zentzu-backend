@@ -12,6 +12,11 @@ rails g controller api/v1/people
 rails g controller api/v1/auth
 ```
 
+## Registration
+```bash
+rails g controller api/v1/registration
+```
+
 ## Course
 
 ```bash
