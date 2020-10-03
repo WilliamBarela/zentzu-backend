@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :people, only: [:create]
       post '/login', to: 'auth#create'
+      post '/signup', to: 'registration#create'
       get '/profile', to: 'people#profile'
     end
   end
