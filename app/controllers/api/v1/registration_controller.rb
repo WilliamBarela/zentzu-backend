@@ -1,4 +1,6 @@
 class Api::V1::RegistrationController < ApplicationController
+  skip_before_action :authorized, only: [:create]
+
   def create
     person = Person.new(person_params)
     if person.save
@@ -10,7 +12,7 @@ class Api::V1::RegistrationController < ApplicationController
         jwt_token: token
       }, status: :accepted
     else
-      render json: {errors: person.errors.full_messages }, status: :bad_request
+      render json: {errors: index_array(person.errors.full_messages) }, status: :bad_request
     end
   end
 

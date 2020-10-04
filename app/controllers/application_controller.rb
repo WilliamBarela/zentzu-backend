@@ -40,4 +40,12 @@ class ApplicationController < ActionController::API
   def authorized
     render json: {:message => 'Please log in'}, status: :unauthorized unless logged_in?
   end
+
+  def index_array(errors_array)
+    [].tap do |a|
+      errors_array.each_with_index do |message, index|
+        a << {:message => message, :index => index}
+      end
+    end
+  end
 end
