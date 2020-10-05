@@ -12,7 +12,8 @@ class Api::V1::AuthController < ApplicationController
         jwt_token: token
       }, status: :accepted
     else
-      render json: {:message => "Invalid email or password"}, status: :unauthorized
+      errors = ["Invalid email or password"]
+      render json: { errors: index_array(errors) }, status: :unauthorized
     end
   end
 
