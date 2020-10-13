@@ -7,7 +7,8 @@ class Api::V1::RegistrationController < ApplicationController
       token = encode_token({:person_id => person.id})
       render json: {
         person: {
-          email: person.email
+          email: person.email,
+          id: person.id
         },
         jwt_token: token
       }, status: :accepted
