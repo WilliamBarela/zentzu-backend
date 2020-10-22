@@ -12,9 +12,14 @@
 # processes).
 
 workers ENV.fetch("WEB_CONCURRENCY") { 2 }
-max_threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
-min_threads_count = ENV.fetch("RAILS_MIN_THREADS") { max_threads_count }
-threads min_threads_count, max_threads_count
+# NOTE: from heroku config file to replace the next commented items
+threads_count = ENV.fetch('RAILS_MAX_THREADS') { 5 }
+threads threads_count, threads_count
+
+# NOTE: heroku config file specifies thread count, not max nor min
+# max_threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
+# min_threads_count = ENV.fetch("RAILS_MIN_THREADS") { max_threads_count }
+# threads min_threads_count, max_threads_count
 
 # Use the `preload_app!` method when specifying a `workers` number.
 # This directive tells Puma to first boot the application and load code
