@@ -5,13 +5,9 @@ class Api::V1::TasksController < ApplicationController
 
     if task.save
       messages = ["Task saved!"]
-      render json: {
-        message: { index_array(messages) }
-      }, status: :accepted
+      render json: { message: { index_array(messages) } }, status: :accepted
     else
-      render json: {
-        errors: { index_array(task.errors.full_messages) }
-      }, status: :accepted
+      render json: { errors: { index_array(task.errors.full_messages) } }, status: :accepted
     end
   end
 
